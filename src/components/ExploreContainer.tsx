@@ -2,6 +2,7 @@ import './ExploreContainer.css';
 import appBadge from '../assets/image/app_badge.png'
 import gpBadge from '../assets/image/gp_badge.png'
 import React from 'react';
+import * as dat from 'dat.gui';
 
 interface ContainerProps { }
 
@@ -171,7 +172,7 @@ class ExploreContainer extends React.Component {
       }
 
       function startGUI() {
-        var gui = new window.dat.GUI({ width: 300 });
+        var gui = new dat.GUI({ width: 300 });
         gui.add(config, 'DYE_RESOLUTION', { 'high': 1024, 'medium': 512, 'low': 256, 'very low': 128 }).name('quality').onFinishChange(initFramebuffers);
         gui.add(config, 'SIM_RESOLUTION', { '32': 32, '64': 64, '128': 128, '256': 256 }).name('sim resolution').onFinishChange(initFramebuffers);
         gui.add(config, 'DENSITY_DISSIPATION', 0, 4.0).name('density diffusion');
@@ -203,7 +204,7 @@ class ExploreContainer extends React.Component {
         captureFolder.add(config, 'TRANSPARENT').name('transparent');
         captureFolder.add({ fun: captureScreenshot }, 'fun').name('take screenshot');
 
-        let github = gui.add({
+        let github: any = gui.add({
           fun: () => {
             window.open('https://github.com/PavelDoGreat/WebGL-Fluid-Simulation');
             // ga('send', 'event', 'link button', 'github');
@@ -215,7 +216,7 @@ class ExploreContainer extends React.Component {
         github.domElement.parentElement.appendChild(githubIcon);
         githubIcon.className = 'icon github';
 
-        let twitter = gui.add({
+        let twitter: any = gui.add({
           fun: () => {
             // ga('send', 'event', 'link button', 'twitter');
             window.open('https://twitter.com/PavelDoGreat');
@@ -227,7 +228,7 @@ class ExploreContainer extends React.Component {
         twitter.domElement.parentElement.appendChild(twitterIcon);
         twitterIcon.className = 'icon twitter';
 
-        let discord = gui.add({
+        let discord: any = gui.add({
           fun: () => {
             // ga('send', 'event', 'link button', 'discord');
             window.open('https://discordapp.com/invite/CeqZDDE');
@@ -239,7 +240,7 @@ class ExploreContainer extends React.Component {
         discord.domElement.parentElement.appendChild(discordIcon);
         discordIcon.className = 'icon discord';
 
-        let app = gui.add({
+        let app: any = gui.add({
           fun: () => {
             // ga('send', 'event', 'link button', 'app');
             window.open('http://onelink.to/5b58bn');
