@@ -1,0 +1,7 @@
+{
+  "name": "Fluit",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
